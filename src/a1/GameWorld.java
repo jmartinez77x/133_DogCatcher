@@ -11,6 +11,9 @@ import java.util.ArrayList;
 public class GameWorld {
 	private int gHeight;
 	private int gWidth; 
+	
+	Net net;
+	
 	ArrayList<Object> gObjects = new ArrayList<Object>();
 	
 	//CODE TO CREATE THE INITIAL GAME OBJECTS/LAYOUTS
@@ -18,7 +21,7 @@ public class GameWorld {
 		gHeight = 1024;
 		gWidth = 1024;
 		
-		Net net = new Net();
+		net = new Net();
 		
 		Cat cat1 = new Cat();
 		Cat cat2 = new Cat(); 
@@ -43,11 +46,49 @@ public class GameWorld {
 	}
 	public int getWidth(){
 		return gWidth;
-	}public void printMap(){
+	}
+	public void printMap(){
 		Object obj = new Object();
 		for(int i = 0; i < gObjects.size(); i++){
 			obj = gObjects.get(i);
 			System.out.println(obj.toString());
 		}
+	}
+	public void expandNet(){
+		net.expandNet();
+	}
+	public void contractNet(){
+		net.contractNet();
+	}
+	public void scoop(){
+		net.scoop();
+	}
+	public void netRight(){
+		net.netRight();
+	}
+	public void netLeft(){
+		net.netLeft();
+	}
+	public void netUp(){
+		net.netUp();
+	}
+	public void netDown(){
+		net.netDown();
+	}
+	public void catCollision(){
+		//FUTURE PROJECTS
+	}
+	public void fightCollision(){
+		//FUTURE PROJECTS
+	}
+	public void tickClock(){
+		//UPDATE POSITIONS
+		//gameClock++;
+	}
+	public void printPoints(){
+		//PRINT POINTS
+	}
+	public void quitGame(){
+		//QUIT GAME 
 	}
 }

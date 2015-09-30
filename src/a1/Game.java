@@ -30,19 +30,19 @@ public class Game{
 			command = getCommand();
 			
 			switch(command){
-			case "e":	//EXPAND SIZE OF NET
-			case "c":	//CONTRACT SIZE OF NET
-			case "s":	//SCOOP UP ANIMALS IN NET
-			case "r":	//MOVE NET RIGHT
-			case "l":	//MOVE NET LEFT
-			case "u":	//MOVE NET UP 
-			case "d":	//MOVE NET DOWN
-			case "k":	//PRETEND COLLISION BETWEEN TWO CATS...FOR LATER USE
-			case "f":	//PRETEND FIGHT OCCURS (CAT AND DOG COLLISION)...EDITED IN LATER EDITIONS	
-			case "t":	//THE GAME CLOCK HAS "TICKED". UPDATE POSITIONS
-			case "p":	//PRINT POINTS
+			case "e":	gw.expandNet();//EXPAND SIZE OF NET
+			case "c":	gw.contractNet();//CONTRACT SIZE OF NET
+			case "s":	gw.scoop();//SCOOP UP ANIMALS IN NET
+			case "r":	gw.netRight();//MOVE NET RIGHT
+			case "l":	gw.netLeft();//MOVE NET LEFT
+			case "u":	gw.netUp();//MOVE NET UP 
+			case "d":	gw.netDown();//MOVE NET DOWN
+			case "k":	gw.catCollision();//PRETEND COLLISION BETWEEN TWO CATS...FOR LATER USE
+			case "f":	gw.fightCollision();//PRETEND FIGHT OCCURS (CAT AND DOG COLLISION)...EDITED IN LATER EDITIONS	
+			case "t":	gw.tickClock();//THE GAME CLOCK HAS "TICKED". UPDATE POSITIONS
+			case "p":	gw.printPoints();//PRINT POINTS
 			case "m":	gw.printMap();//PRINT A MAP OF CURRENT WORLD STATE
-			case "q":	//QUIT (SYSTEM.EXIT(0))
+			case "q":	gw.quitGame();//QUIT (SYSTEM.EXIT(0))
 			default:	//DEFAULT
 			}
 		}

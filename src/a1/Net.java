@@ -30,6 +30,27 @@ public class Net extends Catcher{
 	public void guide(){
 		
 	}
+	public void expandNet(){
+		size++;
+	}
+	public void contractNet(){
+		
+	}
+	public void scoop(){
+		
+	}
+	public void netRight(){
+		
+	}
+	public void netLeft(){
+		
+	}
+	public void netUp(){
+		
+	}
+	public void netDown(){
+		
+	}
 	public String toString(){
 		String netInfo = "Net:";
 		netInfo += " loc=" + loc.getX() + "," + loc.getY();
