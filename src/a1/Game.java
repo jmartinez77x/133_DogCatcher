@@ -1,9 +1,12 @@
-/* Joe Martinez
- * Fall 2015 CSC 133
- * Assignment 1 of the Dog Catcher Game
- * 
- * WHAT IS THIS FILE???
-*/
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
+// Joe Martinez
+// Fall 2015 CSC 133
+// Assignment 1 of the Dog Catcher Game
+// 
+// This class is used to set up the initial game
+// and then get input from the user to control
+// the game. 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 
 package a1;
 import java.util.Scanner;
@@ -21,7 +24,6 @@ public class Game{
 		in.close();
 	}
 	
-	
 	//CODE TO ACCEPT AND EXECUTE USER COMMANDS THAT OPERATE ON THE GAMEWORLD
 	private void play(){
 		String command;
@@ -30,19 +32,19 @@ public class Game{
 			command = getCommand();
 			
 			switch(command){
-			case "e":	gw.expandNet();//EXPAND SIZE OF NET
-			case "c":	gw.contractNet();//CONTRACT SIZE OF NET
-			case "s":	gw.scoop();//SCOOP UP ANIMALS IN NET
-			case "r":	gw.netRight();//MOVE NET RIGHT
-			case "l":	gw.netLeft();//MOVE NET LEFT
-			case "u":	gw.netUp();//MOVE NET UP 
-			case "d":	gw.netDown();//MOVE NET DOWN
-			case "k":	gw.catCollision();//PRETEND COLLISION BETWEEN TWO CATS...FOR LATER USE
-			case "f":	gw.fightCollision();//PRETEND FIGHT OCCURS (CAT AND DOG COLLISION)...EDITED IN LATER EDITIONS	
-			case "t":	gw.tickClock();//THE GAME CLOCK HAS "TICKED". UPDATE POSITIONS
-			case "p":	gw.printPoints();//PRINT POINTS
-			case "m":	gw.printMap();//PRINT A MAP OF CURRENT WORLD STATE
-			case "q":	gw.quitGame();//QUIT (SYSTEM.EXIT(0))
+			case "e":	System.out.println("EXPANDING NET");		gw.expandNet();		break;//EXPAND SIZE OF NET
+			case "c":	System.out.println("CONTRACTING NET");		gw.contractNet(); 	break;//CONTRACT SIZE OF NET
+			case "s":	System.out.println("SCOOPING NET");			gw.scoop(); 		break;//SCOOP UP ANIMALS IN NET
+			case "r":	System.out.println("MOVING NET RIGHT");		gw.netRight();	 	break;//MOVE NET RIGHT
+			case "l":	System.out.println("MOVING NET LEFT");		gw.netLeft(); 		break;//MOVE NET LEFT
+			case "u":	System.out.println("MOVING NET UP");		gw.netUp(); 		break;//MOVE NET UP 
+			case "d":	System.out.println("MOVING NET DOWN");		gw.netDown(); 		break;//MOVE NET DOWN
+			case "k":	System.out.println("CAT COLLISION");		gw.catCollision(); 	break;//PRETEND COLLISION BETWEEN TWO CATS...FOR LATER USE
+			case "f":	System.out.println("FIGHT COLLISION");		gw.fightCollision();break;//PRETEND FIGHT OCCURS (CAT AND DOG COLLISION)...EDITED IN LATER EDITIONS	
+			case "t":	System.out.println("ADVANCED GAME CLOCK");	gw.tickClock(); 	break;//THE GAME CLOCK HAS "TICKED". UPDATE POSITIONS
+			case "p":	System.out.println("PRINTING POINTS");		gw.printPoints(); 	break;//PRINT POINTS
+			case "m":	System.out.println("PRINTING MAP");			gw.printMap(); 		break;//PRINT A MAP OF CURRENT WORLD STATE
+			case "q":	System.out.println("QUITTING GAME");		gw.quitGame(); 		break;//QUIT (SYSTEM.EXIT(0))
 			default:	//DEFAULT
 			}
 		}
@@ -57,20 +59,20 @@ public class Game{
 		//TEST FOR VALID SINGLE-CHARACTER INPUT
 		while(true){
 			input = in.nextLine();
-			
+					
 			if(input.length() == 0){
-				System.out.print("Enter a single-character command: ");
+				System.out.print("Enter a valid single-character command: ");
 				continue;
 			}
 			else if(input.length() != 0){
 				if(input.length() > 1){
-					System.out.print("Enter a single-character command: ");
+					System.out.print("Enter a valid single-character command: ");
 					continue; 
 				}else if(input.matches("e|c|s|r|l|u|d|k|f|t|p|m|q")){
 					break;
 				}
 				else{
-					System.out.print("Enter a single-character command: ");
+					System.out.print("Enter a valid single-character command: ");
 					continue; 
 				}
 			}

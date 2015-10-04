@@ -1,57 +1,26 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
+// Joe Martinez
+// Fall 2015 CSC 133
+// Assignment 1 of the Dog Catcher Game
+// 
+// This class handles functions regarding Cat.
+// There is an empty setColor() because the 
+// changing of the cat's color is not allowed.
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
+
 package a1;
-import java.util.Random;
-import java.awt.Color;
 
 public class Cat extends Animal{
-	private int size;
-	private int minCatSize = 1;
-	private int maxCatSize = 10;
-	private int speed;
-	private int minCatSpeed = 1;
-	private int maxCatSpeed = 10;
-	private int direction;
-	private Color color; 
-	Location loc;
-	Random rand = new Random();
 	
-	//CONSTRUCT CAT
-	Cat(){
-		loc = new Location(rand.nextFloat()*1024, rand.nextFloat()*1024); //NEW RANDOM LOCATION
-		randSize(); //NEW RANDOM SIZE
-		randSpeed();
-		randDirection();
-		color = Color.CYAN;
+	public void setColor(){
+		//BLANK. CAN'T CHANGE COLOR OF CAT
 	}
 	
-	//METHODS
-	public void move(){
-		
-	}
-	public void randSize(){
-		size = rand.nextInt(maxCatSize - minCatSize) + minCatSize;
-	}
-	public void randSpeed(){
-		speed = rand.nextInt(maxCatSpeed - minCatSpeed) + minCatSpeed;
-	}
-	public void randDirection(){
-		direction = rand.nextInt(360);
-	}
-	public int getSize(){
-		return size;
-	}
-	public int getDirection(){
-		return direction;
-	}
-	public int getSpeed(){
-		return speed;
-	}
-	public Color getColor(){
-		return color;
-	}
+	//PRINT CAT INFORMATION
 	public String toString(){
 		String catInfo = "Cat:";
-		catInfo += " loc=" + loc.getX() + "," + loc.getY();
-		catInfo += " color=[" + color.getRed() + "," + color.getGreen() + "," + color.getBlue() + "]";
+		catInfo += " loc=" + fToString(getXLoc()) + ", " + fToString(getYLoc());
+		catInfo += " color=[" + getRed() + "," + getGreen() + "," + getBlue() + "]";
 		catInfo += " size=" + getSize();
 		catInfo += " speed=" + getSpeed();
 		catInfo += " direction=" + getDirection();
