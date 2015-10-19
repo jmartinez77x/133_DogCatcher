@@ -9,6 +9,6 @@
 
 package a1;
 
-public interface IMovable{
+public interface IMovable {
 	public void move();
 }

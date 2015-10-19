@@ -9,13 +9,19 @@
 
 package a1;
 
-public interface IGuidable{
-	
+public interface IGuidable {
+
 	public void expandNet();
+
 	public void contractNet();
+
 	public void scoop();
+
 	public void netRight();
+
 	public void netLeft();
+
 	public void netUp();
+
 	public void netDown();
 }

@@ -9,58 +9,59 @@
 
 package a1;
 
-public abstract class Catcher extends GameObject implements IGuidable{
+public abstract class Catcher extends GameObject implements IGuidable {
 
-	public void expandNet(){
+	public void expandNet() {
 		setSize(getSize() + 7);
 	}
-	
-	public void contractNet(){
+
+	public void contractNet() {
 		setSize(getSize() - 7);
 	}
-	
-	public void scoop(){ }
-	
-	public void netRight(){ 
+
+	public void scoop() {
+	}
+
+	public void netRight() {
 		float x = getXLoc();
 		x = x + 7f;
-		
-		//CHECK RIGHT SIDE
-		if(x > getWidth() - (getSize()/2)){
-			x = getWidth() - (getSize()/2);
+
+		// CHECK RIGHT SIDE
+		if (x > getWidth() - (getSize() / 2)) {
+			x = getWidth() - (getSize() / 2);
 		}
 		setLocation(x, getYLoc());
 	}
-	
-	public void netLeft(){
+
+	public void netLeft() {
 		float x = getXLoc();
 		x = x - 7f;
-		
-		//CHECK LEFT SIDE
-		if(x < getSize()/2){
-			x = getSize()/2;
+
+		// CHECK LEFT SIDE
+		if (x < getSize() / 2) {
+			x = getSize() / 2;
 		}
 		setLocation(x, getYLoc());
 	}
-	
-	public void netUp(){
+
+	public void netUp() {
 		float y = getYLoc();
 		y = y + 7f;
-		
-		//CHECK TOP
-		if(y > getHeight() - (getSize()/2)){
-			y = getHeight() - (getSize()/2);
+
+		// CHECK TOP
+		if (y > getHeight() - (getSize() / 2)) {
+			y = getHeight() - (getSize() / 2);
 		}
 		setLocation(getXLoc(), y);
 	}
-	
-	public void netDown(){
+
+	public void netDown() {
 		float y = getYLoc();
 		y = y - 7f;
-		
-		//CHECK BOTTOM
-		if(y < getSize()/2){
-			y = getSize()/2;
+
+		// CHECK BOTTOM
+		if (y < getSize() / 2) {
+			y = getSize() / 2;
 		}
 		setLocation(getXLoc(), y);
 	}

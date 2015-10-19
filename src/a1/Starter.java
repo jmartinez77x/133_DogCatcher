@@ -7,11 +7,11 @@
 // Use "java a1.Starter" in the bin file to run. 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
 
-package a1; 
+package a1;
 
 public class Starter {
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		@SuppressWarnings("unused")
 		Game g = new Game();
-   	}
+	}
 }

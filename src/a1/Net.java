@@ -9,15 +9,16 @@
 
 package a1;
 
-public class Net extends Catcher{
-	
-	//PRINT NET INFORMATION
-	public String toString(){
+public class Net extends Catcher {
+
+	// PRINT NET INFORMATION
+	public String toString() {
 		String netInfo = "Net:";
 		netInfo += " loc=" + fToString(getXLoc()) + ", " + fToString(getYLoc());
-		netInfo += " color=[" + getRed() + "," + getGreen() + "," + getBlue() + "]";
+		netInfo += " color=[" + getRed() + "," + getGreen() + "," + getBlue()
+				+ "]";
 		netInfo += " size=" + getSize();
-		
+
 		return netInfo;
 	}
 }

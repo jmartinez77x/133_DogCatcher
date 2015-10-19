@@ -10,21 +10,22 @@
 
 package a1;
 
-public class Cat extends Animal{
-	
-	public void setColor(){
-		//BLANK. CAN'T CHANGE COLOR OF CAT
+public class Cat extends Animal {
+
+	public void setColor() {
+		// BLANK. CAN'T CHANGE COLOR OF CAT
 	}
-	
-	//PRINT CAT INFORMATION
-	public String toString(){
+
+	// PRINT CAT INFORMATION
+	public String toString() {
 		String catInfo = "Cat:";
 		catInfo += " loc=" + fToString(getXLoc()) + ", " + fToString(getYLoc());
-		catInfo += " color=[" + getRed() + "," + getGreen() + "," + getBlue() + "]";
+		catInfo += " color=[" + getRed() + "," + getGreen() + "," + getBlue()
+				+ "]";
 		catInfo += " size=" + getSize();
 		catInfo += " speed=" + getSpeed();
 		catInfo += " direction=" + getDirection();
-		
+
 		return catInfo;
 	}
 }
