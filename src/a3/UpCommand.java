@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 // Joe Martinez
 // Fall 2015 CSC 133
-// Assignment 2 of the Dog Catcher Game
+// Dog Catcher Game
 // 
 // This class handles the "Up" command. 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
@@ -37,7 +37,6 @@ public class UpCommand extends AbstractAction{
 	
 	//ACTUALLY PERFORM THE ACTION
 	public void actionPerformed(ActionEvent e) {
-		//System.out.println("MOVING NET UP");
 		game.netUp();
 	}
 }

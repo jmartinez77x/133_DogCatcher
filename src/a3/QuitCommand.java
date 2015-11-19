@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 // Joe Martinez
 // Fall 2015 CSC 133
-// Assignment 2 of the Dog Catcher Game
+// Dog Catcher Game
 // 
 // This class handles the "Quit" command. 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 

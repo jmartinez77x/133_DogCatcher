@@ -1,3 +1,11 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
+// Joe Martinez
+// Fall 2015 CSC 133
+// Dog Catcher Game
+// 
+// Handles the sounds effects for the game.
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
+
 package a3;
 
 import java.applet.Applet;

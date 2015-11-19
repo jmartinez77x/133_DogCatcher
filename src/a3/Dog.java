@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 // Joe Martinez
 // Fall 2015 CSC 133
-// Assignment 2 of the Dog Catcher Game
+// Dog Catcher Game
 // 
 // This class handles the functions only used by Dog.
 //	Mainly regarding scratches. 
@@ -51,22 +51,6 @@ public class Dog extends Animal implements ISelectable{
 	public String getType() {
 		return "Dog";
 	}
-	
-//	public void handleCollision(ICollider obj, GameWorld gw){
-//		if(obj.getType() == "Cat"){
-//			if(((Cat)obj).getCollisionCount() == 0){
-//				//System.out.println("Dog collide with Cat - 1");
-//				((Cat)obj).incCollisionCount();
-//				gw.fightCollision();	
-//			}else if(((Cat)obj).getCollisionCount() > 8){
-//				//System.out.println("Dog collide with Cat - 2");
-//				((Cat)obj).resetCollisionCount();
-//			}else{
-//				//System.out.println("Dog collide with Cat - 3");
-//				((Cat)obj).incCollisionCount();
-//			}
-//		}
-//	}
 
 	public int getLeft() {
 		return (int)(getXLoc() - getSize()/2); 
@@ -105,7 +89,6 @@ public class Dog extends Animal implements ISelectable{
 	}
 
 	public boolean contains(Point p) {
-		// get my x and y bounds
 		float x1, x2, y1, y2;
 		x1 = getXLoc()-(getSize()/2);
 		x2 = getXLoc()+(getSize()/2);

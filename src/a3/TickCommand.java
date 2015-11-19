@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 // Joe Martinez
 // Fall 2015 CSC 133
-// Assignment 2 of the Dog Catcher Game
+// Dog Catcher Game
 // 
 // This class handles the "Tick" command. 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
@@ -17,8 +17,8 @@ public class TickCommand extends AbstractAction{
 
 	private static TickCommand tickCommand;
 	private static GameWorld game;
+	@SuppressWarnings("unused")
 	private static int tickTime;
-	private static int tickCount;
 	
 	private TickCommand(){
 		super("Tick Clock");
@@ -44,7 +44,6 @@ public class TickCommand extends AbstractAction{
 	
 	//ACTUALLY PERFORM THE ACTION
 	public void actionPerformed(ActionEvent e){
-		//System.out.println("ADVANCED GAME CLOCK");
 		game.detectCollision();
 		game.tickClock();
 	}

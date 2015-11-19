@@ -1,3 +1,12 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
+// Joe Martinez
+// Fall 2015 CSC 133
+// Dog Catcher Game
+// 
+// This is the interface that implements
+// the selection of game objects. 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
+
 package a3;
 
 import java.awt.Graphics;
@@ -9,16 +18,8 @@ public interface ISelectable {
 	//HIGHLIGHT SELECTED OBJECTS
 	//ONLY IN PAUSE MODE - IF GAME RESUMED OBJECTS ARE UNSELECTED
 	
-	// way to mark an object as selected or not
-	public void setSelected(boolean yesNo);
-	
-	// see if it is selected
+	public void setSelected(boolean select);
 	public boolean isSelected();
-	
-	// is the mouse in it to select on click?
 	public boolean contains(Point p);
-	
-	// way to draw the object which knows about
-	// if it is selected or not
 	public void draw(Graphics g);
 }

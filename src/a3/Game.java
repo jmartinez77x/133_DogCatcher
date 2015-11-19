@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 // Joe Martinez
 // Fall 2015 CSC 133
-// Assignment 2 of the Dog Catcher Game
+// Dog Catcher Game
 // 
 // This class is used to set up the initial game
 // and then get input from the user to control
@@ -30,22 +30,21 @@ public class Game extends JFrame implements ActionListener, MouseListener, Mouse
 	
 	private JButton pauseButton;
 	private boolean isGamePaused;
-	private Timer timer = new Timer(20, this);
-	
-	private TickCommand tickCommand = TickCommand.getInstance();
-	private KittenCommand kittenCommand = KittenCommand.getInstance();
-	private ContractCommand contractCommand = ContractCommand.getInstance();
-	private DownCommand downCommand = DownCommand.getInstance();
-	private ExpandCommand expandCommand = ExpandCommand.getInstance();
-	private FightCommand fightCommand = FightCommand.getInstance();
-	private LeftCommand leftCommand = LeftCommand.getInstance();
-	private RightCommand rightCommand = RightCommand.getInstance();
-	private ScoopCommand scoopCommand = ScoopCommand.getInstance();
-	private HealCommand healCommand = HealCommand.getInstance();
-	private UpCommand upCommand = UpCommand.getInstance();
-	
 	private Point curMouse = null;
 	private Point startMouse = null;
+	private Timer timer = new Timer(20, this);
+	
+	private TickCommand   	tickCommand 	= TickCommand.getInstance();
+	private KittenCommand 	kittenCommand 	= KittenCommand.getInstance();
+	private ContractCommand	contractCommand	= ContractCommand.getInstance();
+	private DownCommand 	downCommand 	= DownCommand.getInstance();
+	private ExpandCommand 	expandCommand 	= ExpandCommand.getInstance();
+	private FightCommand 	fightCommand 	= FightCommand.getInstance();
+	private LeftCommand 	leftCommand 	= LeftCommand.getInstance();
+	private RightCommand 	rightCommand 	= RightCommand.getInstance();
+	private ScoopCommand 	scoopCommand 	= ScoopCommand.getInstance();
+	private HealCommand 	healCommand 	= HealCommand.getInstance();
+	private UpCommand 		upCommand 		= UpCommand.getInstance();
 
 	public Game() {
 		gw = new GameWorld(); 	//OBSERVERABLE

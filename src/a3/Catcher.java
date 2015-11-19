@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 // Joe Martinez
 // Fall 2015 CSC 133
-// Assignment 2 of the Dog Catcher Game
+// Dog Catcher Game
 // 
 // This class contains all functions and data
 // for the Catcher Object.
@@ -10,11 +10,13 @@
 package a3;
 
 public abstract class Catcher extends GameObject implements IGuidable {
+	
+	private int netSpeed = 10;
 
 	public void expandNet() {
 		float x, y;
 		
-		setSize(getSize() + 7);
+		setSize(getSize() + netSpeed);
 		
 		// CHECK RIGHT SIDE
 		if (getXLoc() > getGameWidth() - (getSize() / 2)) {
@@ -43,7 +45,7 @@ public abstract class Catcher extends GameObject implements IGuidable {
 	}
 
 	public void contractNet() {
-		setSize(getSize() - 7);
+		setSize(getSize() - netSpeed);
 	}
 
 	public void scoop() {
@@ -51,7 +53,7 @@ public abstract class Catcher extends GameObject implements IGuidable {
 
 	public void netRight() {
 		float x = getXLoc();
-		x = x + 7f;
+		x = x + netSpeed;
 
 		// CHECK RIGHT SIDE
 		if (x > getGameWidth() - (getSize() / 2)) {
@@ -62,7 +64,7 @@ public abstract class Catcher extends GameObject implements IGuidable {
 
 	public void netLeft() {
 		float x = getXLoc();
-		x = x - 7f;
+		x = x - netSpeed;
 
 		// CHECK LEFT SIDE
 		if (x < getSize() / 2) {
@@ -73,7 +75,7 @@ public abstract class Catcher extends GameObject implements IGuidable {
 
 	public void netUp() {
 		float y = getYLoc();
-		y = y + 7f;
+		y = y + netSpeed;
 
 		// CHECK TOP
 		if (y > getGameHeight() - (getSize() / 2)) {
@@ -84,7 +86,7 @@ public abstract class Catcher extends GameObject implements IGuidable {
 
 	public void netDown() {
 		float y = getYLoc();
-		y = y - 7f;
+		y = y - netSpeed;
 
 		// CHECK BOTTOM
 		if (y < getSize() / 2) {

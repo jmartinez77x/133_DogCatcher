@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 // Joe Martinez
 // Fall 2015 CSC 133
-// Assignment 2 of the Dog Catcher Game
+// Dog Catcher Game
 // 
 // This class sets up and updates the "MapView".
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
@@ -24,7 +24,7 @@ public class MapView extends JPanel implements IObserver{
 	}
 	
 	public void update(IObservable o) {
-		//PRINT TEXT MAP IN CONSOLE
+//		//PRINT TEXT MAP IN CONSOLE
 //		if(o instanceof GameWorld){
 //			((GameWorld)o).printMap();
 //		}
@@ -37,7 +37,6 @@ public class MapView extends JPanel implements IObserver{
 		IIterator iterator = gw.gObjects.getIterator();
 		Object curObj = new Object();
 		
-		// iterate through, and print each one
 		while(iterator.hasNext() ){
 			curObj = iterator.getNext();
 			if(curObj != null){

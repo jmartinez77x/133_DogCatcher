@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 // Joe Martinez
 // Fall 2015 CSC 133
-// Assignment 2 of the Dog Catcher Game
+// Dog Catcher Game
 // 
 // This class is where most of the control takes place.
 // This is where most data is instantiated and manipulated.
@@ -62,10 +62,10 @@ public class GameWorld implements IObservable{
 //		initInput = initIn.nextLine();
 //		numOfDogs = Integer.parseInt(initInput);
 		
-		//numOfCats = rand.nextInt(10 - 2) + 2;
-		//numOfDogs = rand.nextInt(30 - 3) + 3;
-		numOfCats = 7;
-		numOfDogs = 1;
+		numOfCats = rand.nextInt(10 - 2) + 2;
+		numOfDogs = rand.nextInt(30 - 3) + 3;
+		//numOfCats = 7;
+		//numOfDogs = 1;
 		
 		// TOTAL POINTS STARTS AT 0
 		totalPoints = 0;

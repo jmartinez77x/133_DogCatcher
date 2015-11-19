@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 // Joe Martinez
 // Fall 2015 CSC 133
-// Assignment 2 of the Dog Catcher Game
+// Dog Catcher Game
 // 
 // This class handles the "Sound" command. 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
@@ -38,7 +38,6 @@ public class SoundCommand extends AbstractAction{
 	
 	//ACTUALLY PERFORM THE ACTION
 	public void actionPerformed(ActionEvent e){
-		//System.out.println("SOUND ON/OFF");
 		game.toggleSound();
 		
 		if(game.isSoundOn()){

@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 // Joe Martinez
 // Fall 2015 CSC 133
-// Assignment 2 of the Dog Catcher Game
+// Dog Catcher Game
 // 
 // This class contains all functions and data
 // for the Animal Object.
@@ -27,8 +27,8 @@ public abstract class Animal extends GameObject implements IMovable{
 		dx = (float) Math.cos(90 - getXLoc()) * this.speed;
 		dy = (float) Math.sin(90 - getYLoc()) * this.speed;
 		
-		dx = dx * ((float) ms/20);
-		dy = dy * ((float) ms/20);
+		dx = dx * ((float) ms/15);
+		dy = dy * ((float) ms/15);
 
 		x = x + dx; // NEW X LOCATION
 		y = y + dy; // NEW Y LOCATION
@@ -111,15 +111,50 @@ public abstract class Animal extends GameObject implements IMovable{
 	
 	public void handleCollision(ICollider obj1, ICollider obj2, GameWorld gw){
 		((Animal)obj1).collisions.add(obj2);
-		//System.out.println(obj1);
-		//System.out.println(obj2);
 		
-		int allowedCollisions = 150;
+		int allowedCollisions = 100;
+		@SuppressWarnings("unused")
 		boolean prevCollision = false;
 		
-		if(obj1.getType() == "Cat"){
+//		/*
+		//FIRST TRY - MOST PRACTICAL VERSION
+		if(this.getType() == "Cat"){
 			if(obj2 instanceof Cat){
-				//OBJ2 IS CAT AND A KITTEN
+				//System.out.println("Cat with Cat");
+				if(((Cat)obj2).getCollisionCount() == 0){
+					((Cat)obj2).incCollisionCount();
+					gw.catCollision();	
+				}else if(((Cat)obj2).getCollisionCount() > allowedCollisions){
+					((Cat)obj2).resetCollisionCount();
+				}else if(((Cat)obj2).isKitten()){
+					((Cat)obj2).incCollisionCount();
+					((Cat)obj2).setKitten(false);
+				}
+				else{
+					((Cat)obj2).incCollisionCount();
+				}
+			}
+			if(obj2 instanceof Dog){
+				//System.out.println("Cat with Dog");
+				if(((Dog)obj2).getCollisionCount() == 0){
+					((Dog)obj2).incCollisionCount();
+					gw.fightCollision();	
+				}else if(((Dog)obj2).getCollisionCount() > allowedCollisions){
+					((Dog)obj2).resetCollisionCount();
+				}else{
+					((Dog)obj2).incCollisionCount();
+				}
+			}
+		}
+	}
+	//END FIRST TRY
+//	*/
+	
+	/*
+	//SECOND TRY - NOT REALLY ANY GOOD	
+	if(obj1.getType() == "Cat"){
+		if(obj2 instanceof Cat){
+			//OBJ2 IS CAT AND A KITTEN
 //				if(((Cat)obj2).isKitten()){
 //					((Cat)obj2).incCollisionCount();
 //					if(((Cat)obj2).getCollisionCount() > allowedCollisions){
@@ -127,16 +162,108 @@ public abstract class Animal extends GameObject implements IMovable{
 //						((Cat)obj2).setKitten(false);
 //					}
 //				}
-				//OBJ1 IS A CAT AND A KITTEN
-				if(((Cat)obj1).isKitten()){
-					((Cat)obj1).incCollisionCount();
-					((Cat)obj1).setKitten(false);
-					if(((Cat)obj1).getCollisionCount() > allowedCollisions){
-						((Cat)obj1).resetCollisionCount();
-					}
+			//OBJ1 IS A CAT AND A KITTEN
+			if(((Cat)obj1).isKitten()){
+				((Cat)obj1).incCollisionCount();
+				((Cat)obj1).setKitten(false);
+				if(((Cat)obj1).getCollisionCount() > allowedCollisions){
+					((Cat)obj1).resetCollisionCount();
 				}
 			}
-			if(!prevCollision){
+		}
+		if(!prevCollision){
+			for(int i = 0; i < collisions.size(); i++){
+				if(collisions.get(i) == obj2){
+					prevCollision = true;
+					//CAT WITH CAT - ALREADY COLLIDED
+					if(obj2 instanceof Cat){
+						if(((Cat)obj2).isKitten()){
+							((Cat)obj2).incCollisionCount();
+							((Cat)obj2).setKitten(false);
+						}
+						else if(((Cat)obj2).getCollisionCount() > allowedCollisions){
+							((Cat)obj2).resetCollisionCount();
+							((Animal)obj1).collisions.remove(obj2);
+//								if(((Cat)obj2).isKitten()){
+//									((Cat)obj2).setKitten(false);
+//								}
+						}
+						else{
+							((Cat)obj2).incCollisionCount();
+						}
+					}
+					//CAT WITH DOG - ALREADY COLLIDED
+					if(obj2 instanceof Dog){
+
+					}
+				}
+				if(!prevCollision){
+					if(obj2 instanceof Cat){
+						//NOT A KITTEN, HAS NOT COLLIDED BEFORE, 
+						//System.out.println("1:" + ((Cat)obj1).getCollisionCount() + " 2:" + ((Cat)obj1).getCollisionCount());
+						if(((Cat)obj2).isKitten()){
+							((Cat)obj2).incCollisionCount();
+							((Cat)obj2).setKitten(false);
+						}
+						if(((Cat)obj2).getCollisionCount() == 0){
+							System.out.println("1:" + obj1.getType() + " 2:" + obj2.getType() + " Col:" + ((Animal)obj2).getCollisionCount());
+							System.out.println("Cat with Cat");
+
+							((Cat)obj1).incCollisionCount();
+							((Cat)obj2).incCollisionCount();
+							gw.catCollision();
+						}else if(((Cat)obj2).getCollisionCount() > allowedCollisions){
+							((Cat)obj2).resetCollisionCount();
+						}
+//							else if(((Cat)obj2).isKitten()){
+//								((Cat)obj2).incCollisionCount();
+//								((Cat)obj2).setKitten(false);
+//							}
+						else{
+							((Cat)obj2).incCollisionCount();
+						}
+					}
+
+					//CAT WITH DOG - NOT COLLIDED BEFORE
+					if(obj2 instanceof Dog){
+						//System.out.println("Cat with Dog");
+						if(((Dog)obj2).getCollisionCount() == 0){
+							((Dog)obj2).incCollisionCount();
+							gw.fightCollision();	
+						}else if(((Dog)obj2).getCollisionCount() > allowedCollisions){
+							((Dog)obj2).resetCollisionCount();
+						}else{
+							((Dog)obj2).incCollisionCount();
+						}
+					}
+				}
+				prevCollision = false;
+			}
+		}
+	}
+	//END SECOND TRY
+	*/
+		
+	/*
+	//THIRD TRY - WORKING OK BUT HAS TOO MUCH GOING ON
+	if(obj1.getType() == "Cat"){
+		if(obj2 instanceof Cat){
+			//OBJ2 IS CAT, IS KITTEN
+			if(((Cat)obj2).isKitten()){
+				((Cat)obj2).incCollisionCount();
+				if(((Cat)obj2).getCollisionCount() > allowedCollisions){
+					((Cat)obj2).resetCollisionCount();
+					((Cat)obj2).setKitten(false);
+				}
+			}
+			else if(((Cat)obj1).isKitten()){
+				((Cat)obj1).incCollisionCount();
+				if(((Cat)obj1).getCollisionCount() > allowedCollisions){
+					((Cat)obj1).resetCollisionCount();
+					((Cat)obj1).setKitten(false);
+				}
+			}
+			else if(!prevCollision){
 				for(int i = 0; i < collisions.size(); i++){
 					if(collisions.get(i) == obj2){
 						prevCollision = true;
@@ -144,14 +271,13 @@ public abstract class Animal extends GameObject implements IMovable{
 						if(obj2 instanceof Cat){
 							if(((Cat)obj2).isKitten()){
 								((Cat)obj2).incCollisionCount();
-								((Cat)obj2).setKitten(false);
 							}
 							else if(((Cat)obj2).getCollisionCount() > allowedCollisions){
 								((Cat)obj2).resetCollisionCount();
 								((Animal)obj1).collisions.remove(obj2);
-//								if(((Cat)obj2).isKitten()){
-//									((Cat)obj2).setKitten(false);
-//								}
+								if(((Cat)obj2).isKitten()){
+									((Cat)obj2).setKitten(false);
+								}
 							}
 							else{
 								((Cat)obj2).incCollisionCount();
@@ -162,88 +288,36 @@ public abstract class Animal extends GameObject implements IMovable{
 							
 						}
 					}
-					if(!prevCollision){
-						if(obj2 instanceof Cat){
-							//NOT A KITTEN, HAS NOT COLLIDED BEFORE, 
-							//System.out.println("1:" + ((Cat)obj1).getCollisionCount() + " 2:" + ((Cat)obj1).getCollisionCount());
-							if(((Cat)obj2).isKitten()){
-								((Cat)obj2).incCollisionCount();
-								((Cat)obj2).setKitten(false);
-							}
-							if(((Cat)obj2).getCollisionCount() == 0){
-								System.out.println("1:" + obj1.getType() + " 2:" + obj2.getType() + " Col:" + ((Animal)obj2).getCollisionCount());
-								System.out.println("Cat with Cat");
-								
-								((Cat)obj1).incCollisionCount();
-								((Cat)obj2).incCollisionCount();
-								gw.catCollision();
-							}else if(((Cat)obj2).getCollisionCount() > allowedCollisions){
-								((Cat)obj2).resetCollisionCount();
-							}
-//							else if(((Cat)obj2).isKitten()){
-//								((Cat)obj2).incCollisionCount();
-//								((Cat)obj2).setKitten(false);
-//							}
-							else{
-								((Cat)obj2).incCollisionCount();
-							}
-						}
-						
-						//CAT WITH DOG - NOT COLLIDED BEFORE
-						if(obj2 instanceof Dog){
-							//System.out.println("Cat with Dog");
-							if(((Dog)obj2).getCollisionCount() == 0){
-								((Dog)obj2).incCollisionCount();
-								gw.fightCollision();	
-							}else if(((Dog)obj2).getCollisionCount() > allowedCollisions){
-								((Dog)obj2).resetCollisionCount();
-							}else{
-								((Dog)obj2).incCollisionCount();
-							}
-						}
+				}
+			}
+			if(prevCollision){
+				if(obj2 instanceof Cat){
+					//NOT A KITTEN, HAS NOT COLLIDED BEFORE, 
+					System.out.println("1:" + ((Cat)obj1).getCollisionCount() + " 2:" + ((Cat)obj1).getCollisionCount());
+					if(((Cat)obj2).getCollisionCount() == 0){
+						((Cat)obj1).incCollisionCount();
+						((Cat)obj2).incCollisionCount();
+						gw.catCollision();
+						System.out.println("1:" + obj1.getType() + " 2:" + obj2.getType() + " Col:" + ((Animal)obj2).getCollisionCount());
+						System.out.println("Cat with Cat");
+					}else if(((Cat)obj2).getCollisionCount() > allowedCollisions){
+						((Cat)obj2).resetCollisionCount();
+					}else if(((Cat)obj2).isKitten()){
+						((Cat)obj2).incCollisionCount();
+						((Cat)obj2).setKitten(false);
 					}
-					prevCollision = false;
+					else{
+						((Cat)obj2).incCollisionCount();
+					}
+				}
+				
+				//CAT WITH DOG - NOT COLLIDED
+				if(obj2 instanceof Dog){
+					System.out.println("Cat with Dog");
 				}
 			}
 		}
 	}
-//		if(this.getType() == "Cat"){
-//			if(obj instanceof Cat){
-//				System.out.println("Cat with Cat");
-//				if(((Cat)obj).getCollisionCount() == 0){
-//					((Cat)obj).incCollisionCount();
-//					gw.catCollision();	
-//				}else if(((Cat)obj).getCollisionCount() > 1000){
-//					((Cat)obj).resetCollisionCount();
-//				}else if(((Cat)obj).isKitten()){
-//					((Cat)obj).incCollisionCount();
-//					((Cat)obj).toggleKitten();
-//				}
-//				else{
-//					((Cat)obj).incCollisionCount();
-//				}
-//			}
-//			if(obj instanceof Dog){
-//				System.out.println("Cat with Dog");
-//				if(((Dog)obj).getCollisionCount() == 0){
-//					//System.out.println("Dog collide with Cat - 1");
-//					((Dog)obj).incCollisionCount();
-//					gw.fightCollision();	
-//				}else if(((Dog)obj).getCollisionCount() > 100){
-//					//System.out.println("Dog collide with Cat - 2");
-//					((Dog)obj).resetCollisionCount();
-//				}else{
-//					//System.out.println("Dog collide with Cat - 3");
-//					((Dog)obj).incCollisionCount();
-//				}
-//			}
-//		}
-//		if(this.getType() == "Dog"){
-//			if(obj instanceof Cat){
-//				//DO NOTHING
-//			}
-//			if(obj instanceof Dog){
-//				//DO NOTHING
-//			}
-//		}
+	//END THIRD TRY
+//	*/
 }

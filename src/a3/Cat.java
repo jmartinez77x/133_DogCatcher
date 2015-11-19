@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 // Joe Martinez
 // Fall 2015 CSC 133
-// Assignment 2 of the Dog Catcher Game
+// Dog Catcher Game
 // 
 // This class handles functions regarding Cat.
 // There is an empty setColor() because the 
@@ -36,34 +36,6 @@ public class Cat extends Animal {
 	public String getType() {
 		return "Cat";
 	}
-	
-//	public void handleCollision(ICollider obj, GameWorld gw){		
-//		if(obj.getType() == "Dog"){
-//			if(((Dog)obj).getCollisionCount() == 0){
-//				//System.out.println("Cat collide with Dog");
-//				((Dog)obj).incCollisionCount();
-//				gw.fightCollision();	
-//			}else if(((Dog)obj).getCollisionCount() > 8){
-//				((Dog)obj).resetCollisionCount();
-//			}else{
-//				((Dog)obj).incCollisionCount();
-//			}
-//		}
-//		if(obj.getType() == "Cat" && !isKitten()){
-//			if(((Cat)obj).getCollisionCount() == 0){
-//				//System.out.println("Cat collide with Cat");
-//				((Cat)obj).incCollisionCount();
-//				gw.catCollision();
-//			}else if(((Cat)obj).getCollisionCount() > 8){
-//				((Cat)obj).resetCollisionCount();
-//				if(((Cat) obj).isKitten()){
-//					((Cat)obj).toggleKitten();	
-//				}
-//			}else{
-//				((Cat)obj).incCollisionCount();
-//			}
-//		}
-//	}
 
 	public boolean isKitten() {
 		return kittenFlag;

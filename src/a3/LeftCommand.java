@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 // Joe Martinez
 // Fall 2015 CSC 133
-// Assignment 2 of the Dog Catcher Game
+// Dog Catcher Game
 // 
 // This class handles the "Left" command. 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
@@ -9,7 +9,6 @@
 package a3;
 
 import java.awt.event.ActionEvent;
-
 import javax.swing.AbstractAction;
 
 @SuppressWarnings("serial")
@@ -37,7 +36,6 @@ public class LeftCommand extends AbstractAction{
 
 	//ACTUALLY PERFORM THE ACTION
 	public void actionPerformed(ActionEvent e) {
-		//System.out.println("MOVING NET LEFT");
 		game.netLeft();
 	}
 }

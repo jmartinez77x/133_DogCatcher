@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 // Joe Martinez
 // Fall 2015 CSC 133
-// Assignment 2 of the Dog Catcher Game
+// Dog Catcher Game
 // 
 // This class handles the "Contract" command
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
@@ -36,7 +36,6 @@ public class ContractCommand extends AbstractAction{
 	
 	//ACTUALLY PERFORM THE ACTION
 	public void actionPerformed(ActionEvent e) {
-		//System.out.println("CONTRACTING NET");
 		game.contractNet();
 	}
 }

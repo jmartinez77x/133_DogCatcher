@@ -1,7 +1,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
 // Joe Martinez
 // Fall 2015 CSC 133
-// Assignment 2 of the Dog Catcher Game
+// Dog Catcher Game
 // 
 // This class handles the "About" command
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\ 
@@ -30,7 +30,6 @@ public class AboutCommand extends AbstractAction{
 	
 	//ACTUALLY PERFORM THE ACTION
 	public void actionPerformed(ActionEvent e){
-		//System.out.println("ABOUT");
 		JOptionPane.showMessageDialog(null, "Joe Martinez\n" + "CSC 133 A2\n" + "Fall 2015");
 	}
 }
