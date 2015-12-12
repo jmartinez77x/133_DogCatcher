@@ -27,8 +27,8 @@ public abstract class Animal extends GameObject implements IMovable{
 		dx = (float) Math.cos(90 - getXLoc()) * this.speed;
 		dy = (float) Math.sin(90 - getYLoc()) * this.speed;
 		
-		dx = dx * ((float) ms/15);
-		dy = dy * ((float) ms/15);
+		dx = dx * ((float) ms/17);
+		dy = dy * ((float) ms/17);
 
 		x = x + dx; // NEW X LOCATION
 		y = y + dy; // NEW Y LOCATION
