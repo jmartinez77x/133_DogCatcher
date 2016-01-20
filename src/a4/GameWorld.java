@@ -140,10 +140,6 @@ public class GameWorld implements IObservable{
 		ShockWave sWave = new ShockWave(net.getXLoc(), net.getYLoc());
 		gObjects.add(sWave);
 		
-		//System.out.println("x: " + net.getXLoc() + "y: " + net.getYLoc());
-		//System.out.println("x: " + sWave.getXLoc() + "y: " + sWave.getYLoc());
-		
-		
 		float netLeftB  = net.getXLoc() - (net.getSize() / 2);
 		float netRightB = net.getXLoc() + (net.getSize() / 2);
 		float netBotB   = net.getYLoc() - (net.getSize() / 2);

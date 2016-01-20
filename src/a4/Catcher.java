@@ -14,7 +14,7 @@ public abstract class Catcher extends GameObject implements IGuidable {
 	private int netSpeed = 10;
 
 	public void expandNet() {
-		float x, y;
+		//float x, y;
 		
 		setSize(getSize() + netSpeed);
 		

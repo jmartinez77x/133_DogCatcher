@@ -153,12 +153,10 @@ public abstract class GameObject implements IDrawable, ICollider{
 		rotation.setToRotation(Math.toRadians(0-deg));
 	}
 	
-	// support for translation
 	public void translate(double dx, double dy){
 		translation.translate(dx, dy);
 	}
 	
-	// support for scaling
 	public void scale(double xVal, double yVal){
 		scale.scale(xVal, yVal);
 	}

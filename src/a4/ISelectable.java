@@ -9,7 +9,7 @@
 
 package a4;
 
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 //import java.awt.Point;
 import java.awt.geom.Point2D;
 
@@ -22,5 +22,5 @@ public interface ISelectable {
 	public void setSelected(boolean select);
 	public boolean isSelected();
 	public boolean contains(Point2D.Float p);
-	public void draw(Graphics2D twoD);
+	public void draw(Graphics g);
 }

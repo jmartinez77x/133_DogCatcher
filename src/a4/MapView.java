@@ -67,7 +67,7 @@ public class MapView extends JPanel implements IObserver{
 					((GameObject)curObj).draw(twoD);
 				}
 				else{
-					((GameObject)curObj).draw(twoD);
+					((GameObject)curObj).draw(g);
 				}
 			}
 		}

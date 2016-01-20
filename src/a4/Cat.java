@@ -81,16 +81,6 @@ public class Cat extends Animal {
 	}
 
 	public void draw(Graphics2D twoD) {
-		int halfSize = getSize()/2;
-		twoD.setColor(getColor());
 		
-		Point top      = new Point((int)getXLoc(), (int)getYLoc() + halfSize);
-		Point botLeft  = new Point((int)getXLoc() - halfSize, (int)getYLoc() - halfSize);
-		Point botRight = new Point((int)getXLoc() + halfSize, (int)getYLoc() - halfSize);
-		
-		int [] xPts = new int [] {top.x, botLeft.x, botRight.x} ;
-		int [] yPts = new int [] {top.y, botLeft.y, botRight.y} ;
-		
-		twoD.fillPolygon(xPts, yPts, 3);
 	}
 }

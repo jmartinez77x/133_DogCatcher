@@ -66,10 +66,8 @@ public class Net extends Catcher {
 		g.fillRect((int)getXLoc() - halfSize, (int)getYLoc() - halfSize, getSize(), getSize());
 	}
 
+	@Override
 	public void draw(Graphics2D twoD) {
-		int halfSize = getSize()/2;
-		twoD.setColor(getColor());
-		twoD.setColor(getColor());
-		twoD.drawRect((int)getXLoc() - halfSize, (int)getYLoc() - halfSize, getSize(), getSize());	
+		
 	}
 }

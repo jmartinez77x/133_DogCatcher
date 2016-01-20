@@ -75,20 +75,12 @@ public class Dog extends Animal implements ISelectable{
 		
 		if(isSelected()){
 			g.setColor(Color.CYAN);
-			g.fillOval((int)getXLoc()- halfSize, (int)getYLoc() - halfSize, getSize(), getSize());
+			g.fillOval((int)getXLoc() - halfSize, (int)getYLoc() - halfSize, getSize(), getSize());
+			g.drawLine((int)getXLoc(), (int)getYLoc(), (int)getXLoc(), (int)(getYLoc() + getSize()/1.3));
 		}else{
 			g.setColor(getColor());
-			//MAIN
-			g.drawOval((int)getXLoc()- halfSize, (int)getYLoc() - halfSize, getSize(), getSize());
-//			//TOP LEFT
-//			g.drawOval((int)getXLoc()- halfSize, (int)getYLoc() + halfSize, getSize()/3, getSize()/3);
-//			//TOP RIGHT
-//			g.drawOval((int)getXLoc()+ getSize()/3, (int)getYLoc() + getSize()/4, getSize()/3, getSize()/3);
-//			//BOTTOM LEFT
-//			g.drawOval((int)getXLoc()- getSize()/2, (int)getYLoc() - halfSize, getSize()/3, getSize()/3);
-//			//BOTTOM RIGHT
-//			g.drawOval((int)getXLoc()+ halfSize, (int)getYLoc() - halfSize, getSize()/3, getSize()/3);
-			g.drawLine((int)getXLoc() - halfSize, (int)getYLoc() - halfSize, 5, 5);
+			g.drawOval((int)getXLoc() - halfSize, (int)getYLoc() - halfSize, getSize(), getSize());
+			g.drawLine((int)getXLoc(), (int)getYLoc(), (int)getXLoc(), (int)(getYLoc()+getSize()/1.3));
 		}
 	}
 
@@ -116,16 +108,6 @@ public class Dog extends Animal implements ISelectable{
 	}
 
 	public void draw(Graphics2D twoD) {
-		int halfSize = getSize()/2;
 		
-		if(isSelected()){
-			twoD.setColor(Color.CYAN);
-			twoD.fillOval((int)getXLoc()- halfSize, (int)getYLoc() - halfSize, getSize(), getSize());
-			twoD.drawLine((int)getXLoc(), (int)getYLoc(), (int)getXLoc(), (int)(getYLoc()+getSize()/1.3));
-		}else{
-			twoD.setColor(getColor());
-			twoD.drawOval((int)getXLoc() - halfSize, (int)getYLoc() - halfSize, getSize(), getSize());
-			twoD.drawLine((int)getXLoc(), (int)getYLoc(), (int)getXLoc(), (int)(getYLoc()+getSize()/1.3));
-		}
 	}
 }

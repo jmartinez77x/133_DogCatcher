@@ -9,9 +9,8 @@
 
 To run program:
 	After file is unzipped navigate to it's directory and 
-	use the command "java a2.starter" 
+	use the command "java a4.starter" 
 	
-Changes:
 	
 	
 	 

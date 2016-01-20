@@ -11,10 +11,11 @@
 
 package a4;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
-import java.text.DecimalFormat;
+//import java.text.DecimalFormat;
 import java.util.Vector;
 
 @SuppressWarnings({"rawtypes", "unchecked"})
@@ -30,6 +31,7 @@ public class ShockWave extends Animal{
 	ShockWave(float x, float y){
 		setLocation(x, y);
 		setSpeed(SPEED);
+		setColor(Color.RED);
 		curLifeSpan = LIFESPAN;
 		initPoints();
 	}
